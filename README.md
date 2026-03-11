@@ -48,6 +48,23 @@ Unlike prior approaches that simply concatenate full interaction histories, `ver
 </p>
 
 
+# verl-agent + habitat-sim 环境配置 
+## 安装顺序
+- 先装verl-agent，然后[源码安装](https://github.com/facebookresearch/habitat-sim/blob/v0.2.5/BUILD_FROM_SOURCE.md)habitat-sim
+- habitat-sim 官方只提供python 3.9以下的conda包，python 3.10只能自行源码编译（测试发现高于3.10的版本也能编译habitat-sim，但是实际使用时会出现奇怪的BUG）
+- habitat-sim 源码编译必须使用 git clone，然后pip install -r requirements.txt前，把numpy注释掉，numpy==2.2.6也能正常编译habitat_sim
+`git clone --branch v0.2.5 https://github.com/facebookresearch/habitat-sim.git`
+
+## 依赖包版本
+- 框架支持对InternVL-3.5的训练，一些核心依赖包的版本如下：
+```
+python==3.10.18
+transformers==4.52.4
+vllm==0.8.5
+torch==2.6.0+cu124
+habitat-sim==0.2.5
+```
+
 # Table of Contents
 
 - [Key Features](#key-features)
